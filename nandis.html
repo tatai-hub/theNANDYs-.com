@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>THE NANDYS' & EVENT MANAGEMENT</title>
+  <meta name="description" content="THE NANDYS' & EVENT MANAGEMENT - Making your special occasions unforgettable with elegant event planning and professional management.">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #141414;
+      --gold: #d4af37;
+      --light-gold: #f3df9b;
+      --white: #f8f6f0;
+      --muted: #b9b5aa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* Header and logo */
+    header {
+      background: #050505;
+      border-bottom: 1px solid #5c491b;
+      padding: 15px 0;
+    }
+
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      padding: 4px;
+    }
+
+    .brand h1 {
+      font-family: Georgia, serif;
+      color: var(--gold);
+      font-size: clamp(19px, 3.5vw, 31px);
+      line-height: 1.3;
+      letter-spacing: 1px;
+    }
+
+    .brand p {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #111;
+      border-bottom: 1px solid #4a3a18;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+      gap: 15px;
+    }
+
+    .nav-label {
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .menu a:hover {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 7px 12px;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      background: var(--gold);
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        linear-gradient(#050505ad, #050505d9),
+        url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+      border-bottom: 1px solid #5c491b;
+    }
+
+    .hero-content {
+      max-width: 820px;
+      margin: auto;
+      padding: 75px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 4px;
+    }
+
+    .hero h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(36px, 7vw, 68px);
+      line-height: 1.13;
+      margin: 20px 0;
+    }
+
+    .hero h2 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: #e1ded6;
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* General sections */
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-family: Georgia, serif;
+      color: var(--gold);
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 10px 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .gold-line {
+      width: 65px;
+      height: 2px;
+      background: var(--gold);
+      margin: 15px auto;
+    }
+
+    /* About */
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      color: #d2cec4;
+    }
+
+    .about-content p + p {
+      margin-top: 15px;
+    }
+
+    /* Services */
+    .services-section {
+      background: #101010;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 27px;
+      background: linear-gradient(145deg, #191919, #101010);
+      border: 1px solid #40351d;
+      border-radius: 8px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .service-icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--light-gold);
+      font-family: Georgia, serif;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Team */
+    .team-card {
+      text-align: center;
+    }
+
+    .avatar {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      border: 2px solid var(--gold);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 30px;
+      background: #252015;
+    }
+
+    .team-card a {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--gold);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    /* Gallery */
+    .gallery-section {
+      background: #101010;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .gallery figure {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #51421f;
+      border-radius: 7px;
+      background: #1b1b1b;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .gallery figure:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery figcaption {
+      padding: 12px;
+      color: var(--light-gold);
+      font-size: 14px;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .contact-info {
+      padding: 28px;
+      border: 1px solid #51421f;
+      border-radius: 8px;
+      background: #121212;
+    }
+
+    .contact-info h3 {
+      font-family: Georgia, serif;
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      color: #d1cdc3;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-info a:not(.btn) {
+      color: var(--light-gold);
+      text-decoration: none;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .map {
+      width: 100%;
+      min-height: 350px;
+      border: 1px solid #51421f;
+      border-radius: 8px;
+      background: #171717;
+    }
+
+    .map-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 350px;
+      padding: 25px;
+      border: 1px solid #51421f;
+      border-radius: 8px;
+      color: var(--muted);
+    }
+
+    .map-placeholder h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #51421f;
+      background: #050505;
+      text-align: center;
+      padding: 30px 5%;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* Responsive mobile menu */
+    @media (max-width: 850px) {
+      .menu {
+        gap: 13px;
+      }
+
+      .menu a {
+        font-size: 12px;
+      }
+
+      .nav-label {
+        display: none;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .brand {
+        gap: 10px;
+      }
+
+      .logo {
+        width: 54px;
+        height: 54px;
+      }
+
+      .brand p {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+      }
+
+      .nav-inner {
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .menu.open {
+        display: flex;
+      }
+
+      .menu li {
+        border-top: 1px solid #ffffff15;
+      }
+
+      .menu a {
+        display: block;
+        padding: 11px 0;
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero h2 {
+        font-size: 39px;
+      }
+
+      .grid,
+      .gallery,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 240px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER / BUSINESS LOGO -->
+  <header id="home">
+    <div class="container brand">
+
+      <!-- Save your logo image as logo.png in this folder -->
+      <img class="logo" src="logo.png"
+           alt="THE NANDYS' Event Management logo"
+           onerror="this.style.display='none'">
+
+      <div>
+        <h1>THE NANDYS' &amp; EVENT MANAGEMENT</h1>
+        <p>YOUR DREAM EVENT, OUR RESPONSIBILITY</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <div class="container nav-inner">
+
+      <span class="nav-label">MAKE IT MEMORABLE</span>
+
+      <button class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open navigation menu"
+              aria-controls="mainMenu"
+              aria-expanded="false">
+        ☰ MENU
+      </button>
+
+      <ul class="menu" id="mainMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO / WELCOME -->
+    <section class="hero">
+      <div class="container hero-content">
+
+        <div class="eyebrow">Luxury • Creativity • Perfection</div>
+
+        <h2>Every Celebration<br>
+          <span>Deserves Something Special</span>
+        </h2>
+
+        <p>
+          Welcome to THE NANDYS' &amp; EVENT MANAGEMENT.
+          We bring your ideas to life with beautiful decorations,
+          thoughtful planning and unforgettable celebrations.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#services">Explore Our Services</a>
+
+          <!-- Replace with your WhatsApp number, digits only -->
+          <a class="btn btn-outline"
+             href="https://wa.me/91XXXXXXXXXX"
+             target="_blank" rel="noopener">
+            WhatsApp Us
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-title">
+          <div class="eyebrow">A Little About Us</div>
+          <h2>Creating Moments That Last Forever</h2>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="about-content">
+          <p>
+            At THE NANDYS' &amp; EVENT MANAGEMENT, we believe every
+            celebration tells a unique story. Our goal is to turn
+            your vision into a beautifully organized and memorable event.
+          </p>
+
+          <p>
+            From intimate family celebrations to grand occasions,
+            we focus on creative concepts, careful planning,
+            elegant presentation and attention to detail.
+          </p>
+
+          <p>
+            <strong style="color: var(--gold);">
+              Your occasion. Your vision. Our commitment.
+            </strong>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section" id="services">
+      <div class="container">
+
+        <div class="section-title">
+          <div class="eyebrow">What We Do</div>
+          <h2>Our Services</h2>
+          <div class="gold-line"></div>
+          <p>Making every occasion beautiful and stress-free.</p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="service-icon">💍</div>
+            <h3>Wedding Management</h3>
+            <p>
+              Beautiful wedding arrangements, event coordination
+              and personalized celebration planning.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="service-icon">🎂</div>
+            <h3>Birthday Parties</h3>
+            <p>
+              Special birthday decorations, themed setups
+              and memorable parties for all ages.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="service-icon">🌸</div>
+            <h3>Decoration &amp; Design</h3>
+            <p>
+              Elegant floral arrangements, stage decoration,
+              backdrops and customized event styling.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="service-icon">🏢</div>
+            <h3>Corporate Events</h3>
+            <p>
+              Professional arrangements for business gatherings,
+              launches, meetings and special functions.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="service-icon">🎤</div>
+            <h3>Sound &amp; Entertainment</h3>
+            <p>
+              Entertainment coordination, sound arrangements
+              and event activities tailored to your occasion.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="service-icon">✨</div>
+            <h3>Custom Events</h3>
+            <p>
+              Have a unique idea? Tell us about your celebration
+              and we will discuss a plan suited to your needs.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM MEMBERS -->
+    <section id="team">
+      <div class="container">
+
+        <div class="section-title">
+          <div class="eyebrow">Meet The People</div>
+          <h2>Our Team</h2>
+          <div class="gold-line"></div>
+          <p>Dedicated people working together to make your event special.</p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card team-card">
+            <div class="avatar">👤</div>
+            <h3>Swayang Nandy</h3>
+            <p>Founder / Event Director</p>
+            <a href="tel:++917001740197">☎ +917001740197</a>
+          </article>
+
+          <article class="card team-card">
+            <div class="avatar">👤</div>
+            <h3>Arupam Nandy</h3>
+            <p>Event Manager</p>
+            <a href="tel:++91956468628">☎ 919564638628</a>
+          </article>
+
+          <article class="card team-card">
+            <div class="avatar">👤</div>
+            <h3>Himanshu Nandy</h3>
+            <p>Decoration Coordinator</p>
+            <a href="tel:++919832920947">☎ ++919832920947</a>
+          </article>
+
+          <article class="card team-card">
+            <div class="avatar">👤</div>
+            <h3>Subhajit Nandi</h3>
+            <p>Client Relations</p>
+            <a href="tel:+919332328527">☎ +91 9332328527</a>
+          </article>
+
+         
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+
+        <div class="section-title">
+          <div class="eyebrow">Our Work &amp; Inspiration</div>
+          <h2>Photo Gallery</h2>
+          <div class="gold-line"></div>
+          <p>Replace these sample photos with pictures of your actual events.</p>
+        </div>
+
+        <div class="gallery">
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80"
+              alt="Elegant wedding reception setup"
+              loading="lazy">
+            <figcaption>Wedding Celebrations</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80"
+              alt="Beautifully decorated event table"
+              loading="lazy">
+            <figcaption>Elegant Table Decoration</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=800&q=80"
+              alt="Outdoor event celebration"
+              loading="lazy">
+            <figcaption>Special Occasions</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=800&q=80"
+              alt="Party table and event decorations"
+              loading="lazy">
+            <figcaption>Party Arrangements</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+              alt="Formal event arrangement"
+              loading="lazy">
+            <figcaption>Formal Events</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80"
+              alt="Live celebration and entertainment"
+              loading="lazy">
+            <figcaption>Live Entertainment</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT AND GOOGLE MAPS -->
+    <section id="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <div class="eyebrow">Let's Plan Something Beautiful</div>
+          <h2>Contact Us</h2>
+          <div class="gold-line"></div>
+          <p>Get in touch to discuss your upcoming event.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <h3>Get In Touch</h3>
+
+            <p>
+              <strong>Business:</strong><br>
+              THE NANDYS' &amp; EVENT MANAGEMENT
+            </p>
+
+            <p>
+              <strong>Phone Number:</strong><br>
+              <a href="tel:+919832920947">+91 9832920947</a>
+            </p>
+
+            <p>
+              <strong>Alternate Number:</strong><br>
+              <a href="tel:+917001740197">+917001740197</a>
